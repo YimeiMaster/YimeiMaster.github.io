@@ -1,0 +1,143 @@
+/* 全局样式 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    padding-top: 70px;
+}
+
+header, footer {
+    background: linear-gradient(90deg, #4e73df, #1e56a0);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/* 固定导航栏 */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #4e73df, #1e56a0);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0066ff;
+}
+
+nav a.active {
+    background-color: #00c4cc;
+    font-weight: bold;
+}
+
+/* 页面布局 */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #1e56a0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #4e73df;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1em;
+}
+
+.btn:hover {
+    background-color: #00c4cc;
+}
+
+/* 表单样式 */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #4e73df;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0066ff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
