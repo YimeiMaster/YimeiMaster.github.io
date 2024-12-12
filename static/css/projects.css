@@ -1,0 +1,23 @@
+.photo-slider {
+    width: 100%;
+    height: auto; /* 调整高度以压低框架 */
+    overflow-x: scroll; /* 开启水平滚动 */
+    overflow-y: hidden; /* 禁用垂直滚动 */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    background-color: white;
+}
+
+.photo-container {
+    display: flex;
+    gap: 10px; /* 设置图片间距 */
+    align-items: center;
+}
+
+.photo-container img {
+    width: 350px; /* 调整图片宽度 */
+    height: 35  0px; /* 调整图片高度 */
+    object-fit: cover; /* 确保图片按比例填充 */
+    border-radius: 5px; /* 可选：添加圆角 */
+}
