@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- 固定导航栏 -->
+    <nav>
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="about.html" class="nav-link">作者团队</a>
+        <a href="services.html" class="nav-link">服务内容</a>
+        <a href="projects.html" class="nav-link">精彩呈现</a>
+        <a href="contact.html" class="nav-link active">联系我们</a>
+        <a href="login.html" class="nav-link">网页日志</a>
+    </nav>
+
+    <!-- 页面内容 -->
+    <main>
+        <section>
+            <h1>如果您对我的服务感兴趣或有任何问题，欢迎通过下面的表单与我联系。</h1>
+            <h1>If you are interested in my services or have any questions, please feel free to contact me through the form below.</h1>
+            <h2>（附件暂不可上传，正在开发中！）</h2>
+            <h2>(The attachment cannot be uploaded temporarily and is currently under development!)</h2>
+            <!-- <p>测试</p> -->
+
+            <form id="contact-form">
+                <label for="name">姓名Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">邮箱Mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">需求描述Requirement description:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <label for="files">上传附件Upload attachments:</label>
+                <input type="file" id="files" name="files" multiple>
+
+                <button type="submit">提交Submit</button>
+            </form>
+
+            <div id="status-message" style="display:none;"></div>
+        </section>
+    </main>
+
+    <!-- 固定页脚 -->
+    <footer>
+        &copy; 2024 沃夫数据分析工作室
+    </footer>
+
+    <script>
+        // 初始化 EmailJS
+        emailjs.init("uNsvYmCdqEj_mGgcI"); // 使用您在 EmailJS 中获得的 user_id/api key
+
+        // 获取表单元素
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();  // 阻止表单的默认提交行为
+
+            // 获取表单数据
+            const formData = new FormData(form);
+            const name = formData.get("name");
+            const email = formData.get("email");
+            const message = formData.get("message");
+            const files = formData.get("files");
+
+            // 提交邮件，两个ID（服务ID，模板ID）
+            emailjs.sendForm("Data_analysis_service", "template_5ovisma", form)
+                .then(function (response) {
+                    console.log("SUCCESS", response);
+                    // 显示成功消息
+                    document.getElementById("status-message").style.display = "block";
+                    document.getElementById("status-message").innerHTML = "您的信息已成功提交，我们会尽快与您联系。";
+                    form.reset();  // 提交后重置表单
+                }, function (error) {
+                    console.log("FAILED", error);
+                    // 显示错误消息
+                    document.getElementById("status-message").style.display = "block";
+                    document.getElementById("status-message").innerHTML = "提交失败，请稍后重试。";
+                });
+        });
+    </script>
+</body>
+</html>
