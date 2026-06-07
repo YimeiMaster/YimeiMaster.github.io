@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>简历下载 | 沃夫数据分析工作室</title>
+    <!-- 引用原风格样式库，保证视觉一致性 -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/projects.css">
+    <!-- 针对下载页面的补充网格布局及卡片样式（不破坏原风格，增强响应式） -->
+    <style>
+        /* 下载页面专用网格布局及卡片增强 */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0 20px;
+        }
+
+        /* 卡片样式：优雅圆角，柔和阴影，与原项目卡片气质统一 */
+        .resume-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .resume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2a3a 100%);
+            padding: 20px 20px 14px;
+            color: white;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .card-header .version-badge {
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 30px;
+            margin-top: 8px;
+            font-weight: normal;
+        }
+
+        .card-body {
+            padding: 20px 20px 16px;
+            flex: 1;
+            color: #2c3e50;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .feature-list li {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4b5563;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #2c7da0;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .print-note {
+            background: #f0f9ff;
+            border-left: 3px solid #2c7da0;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-top: 12px;
+            color: #1f4e6e;
+        }
+
+        .download-link {
+            display: block;
+            text-align: center;
+            background: #f8fafc;
+            padding: 12px;
+            margin: 8px 20px 20px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e4663;
+            border: 1px solid #e2edf2;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .download-link:hover {
+            background: #2c7da0;
+            color: white;
+            border-color: #2c7da0;
+            box-shadow: 0 4px 8px rgba(44,125,160,0.2);
+        }
+
+        /* 响应式布局：平板变成两列，手机单列 */
+        @media (max-width: 900px) {
+            .download-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .download-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .card-header h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* 沿用原项目的section内部间距，保持呼吸感 */
+        section {
+            padding-bottom: 2rem;
+        }
+        .section-sub {
+            color: #5b6e8c;
+            border-left: 4px solid #2c7da0;
+            padding-left: 16px;
+            margin: 10px 0 0 0;
+            font-weight: 400;
+        }
+        hr {
+            margin: 20px 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+        }
+        /* 让导航栏下划线风格保持一致 */
+        .nav-link.active {
+            border-bottom-color: #2c7da0;
+        }
+    </style>
+</head>
+<body>
+<!-- 固定导航栏（沿用原风格，新增“简历下载”项并高亮） -->
+<nav>
+    <a href="index.html" class="nav-link">首页</a>
+    <a href="about.html" class="nav-link">作者团队</a>
+    <a href="services.html" class="nav-link">服务内容</a>
+    <a href="projects.html" class="nav-link">精彩呈现</a>
+    <a href="contact.html" class="nav-link">联系我们</a>
+    <a href="login.html" class="nav-link">网页日志</a>
+    <a href="Download.html" class="nav-link active">简历下载</a>
+</nav>
+
+<!-- 页面主要内容区 -->
+<main>
+    <section>
+        <h1>📄 简历下载 · Resume Download</h1>
+        <p class="section-sub">专业适配多场景 · 数据分析 / 教师岗位 / 灵活变更 · 支持打印优化防跨页断行</p>
+        <!-- 简洁说明：提供六个版本，两行三列布局，满足不同投递与打印需求 -->
+        <div class="download-grid">
+            <!-- 第一行第一列：数据分析版（普通） -->
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>📊 数据分析版</h3>
+                    <div class="version-badge">Data Analyst Edition</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>聚焦SQL / Python / BI 项目经历</li>
+                        <li>突出数据清洗、建模与可视化能力</li>
+                        <li>STAR法则量化成果，适配互联网/金融</li>
+                    </ul>
+                    <div class="print-note">✨ 标准数字版，支持浏览器打印</div>
+                </div>
+                <a href="resume_data.html" class="download-link" target="_blank">📎 查看 / 下载简历 →</a>
+            </div>
+
+            <!-- 第一行第二列：教师版 -->
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>🍎 教师版</h3>
+                    <div class="version-badge">Education Edition</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>教学成果展示 + 课程设计亮点</li>
+                        <li>教育学理论融合课堂管理经验</li>
+                        <li>教师资格 / 普通话 / 职称信息突出</li>
+                    </ul>
+                    <div class="print-note">✨ 突出师德与教学实绩，排版清晰</div>
+                </div>
+                <a href="resume_teacher.html" class="download-link" target="_blank">📎 查看 / 下载简历 →</a>
+            </div>
+
+            <!-- 第一行第三列：变化适用版（灵活岗位版） -->
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>🔄 变化适用版</h3>
+                    <div class="version-badge">Flexible Adaptation</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>跨界技能矩阵，适配多行业转变</li>
+                        <li>项目制经历 + 快速学习能力佐证</li>
+                        <li>可迁移能力模块化展示</li>
+                    </ul>
+                    <div class="print-note">✨ 适合跨领域求职 / 职业转型</div>
+                </div>
+                <a href="resume_change.html" class="download-link" target="_blank">📎 查看 / 下载简历 →</a>
+            </div>
+
+            <!-- 第二行第一列：数据分析版（打印防跨页断行） -->
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>📊 数据分析版 <span style="font-size:0.8rem;">✧ 打印优化</span></h3>
+                    <div class="version-badge">Print Optimized · 防跨页断行</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>针对打印媒介深度优化，避免表格/段落分割</li>
+                        <li>page-break-inside:avoid 技术保障</li>
+                        <li>保留数据成果同时保证纸质版专业度</li>
+                    </ul>
+                    <div class="print-note">🖨️ 专为纸质投递 & 面试打印设计，无跨页截断</div>
+                </div>
+                <a href="resume_data_print.html" class="download-link" target="_blank">📄 打印防断版 / 预览 →</a>
+            </div>
+
+            <!-- 第二行第二列：教师版（打印防跨页断行） -->
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>🍎 教师版 <span style="font-size:0.8rem;">✧ 打印优化</span></h3>
+                    <div class="version-badge">Print Optimized · 防跨页断行</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>证书/奖项/教育经历分段防断裂处理</li>
+                        <li>教学案例模块强制同页展现</li>
+                        <li>CSS打印样式加持，评审更友好</li>
+                    </ul>
+                    <div class="print-note">🖨️ 教师编/校招纸质版，杜绝内容断层</div>
+                </div>
+                <a href="resume_teacher_print.html" class="download-link" target="_blank">📄 打印防断版 / 预览 →</a>
+            </div>
+
+            <!-- 第二行第三列：变化适用版（打印防跨页断行） -->
+            <div class="resume-card">
+                <div class="card-header">
+                    <h3>🔄 变化适用版 <span style="font-size:0.8rem;">✧ 打印优化</span></h3>
+                    <div class="version-badge">Print Optimized · 防跨页断行</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>多行业履历区块分隔防跨页错位</li>
+                        <li>技能证书集群完整打印，不断裂</li>
+                        <li>兼顾HR纸质阅读与电子存档体验</li>
+                    </ul>
+                    <div class="print-note">🖨️ 跨行业求职打印版本，重要信息不分割</div>
+                </div>
+                <a href="resume_change_print.html" class="download-link" target="_blank">📄 打印防断版 / 预览 →</a>
+            </div>
+        </div>
+
+        <!-- 附加提示：简历文件说明，与原有“项目持续更新”风格呼应 -->
+        <div style="margin-top: 40px; text-align: center; background: #f9fafb; border-radius: 28px; padding: 20px; border: 1px solid #eef2f6;">
+            <p style="color: #2c7da0; font-weight: 500;">📌 说明：点击任意「查看/下载简历」将打开对应的HTML简历文件，所有版本均适配移动端/PC端阅览。<br>
+            “打印防跨页断行”版额外包含CSS打印分页控制，避免打印时内容跨页断裂，保障纸质简历专业性。</p>
+            <p style="font-size: 0.85rem; color: #556b82;">✨ 简历文件命名参考：resume_data.html / resume_teacher.html / resume_change.html / resume_data_print.html / resume_teacher_print.html / resume_change_print.html <br>
+            请将您的六个简历HTML文件放置于相同目录下，链接即可正常访问。</p>
+        </div>
+    </section>
+</main>
+
+<!-- 固定页脚 与原风格一致 -->
+<footer>
+    &copy; 2024 沃夫数据分析工作室 | 专业简历定制 · 数据分析解决方案
+</footer>
+
+<!-- 保留原JS文件（如果包含滑块或UI交互，但下载页面无需额外逻辑，保持架构即可） -->
+<script src="js/script.js"></script>
+</body>
+</html>
